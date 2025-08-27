@@ -1,0 +1,52 @@
+# -------------------------------
+# Git: Comandos Esenciales (Git Bash)
+# -------------------------------
+
+cd /ruta/del/proyecto
+git init
+
+qgit config --global user.email "tu@email.com"
+
+# Guardar credenciales (token)
+git config --global credential.helper store
+# o método alternativo en Git Bash (no oficial):
+git config --global user.password "TU_TOKEN"
+
+# -------------------------------
+# Estado y commits
+# -------------------------------
+git status
+git add archivo.txt       # agregar archivo específico
+git add .                 # agregar todos los cambios
+git commit -m "mensaje"
+
+# -------------------------------
+# Repositorio remoto
+# -------------------------------
+git remote add origin https://github.com/TU-USUARIO/TU-REPO.git
+git push -u origin main   # primera vez (setea upstream)
+git push                  # siguientes veces
+git pull                  # traer cambios del remoto
+
+# -------------------------------
+# Ramas
+# -------------------------------
+git branch nombreRama     # crear nueva rama
+git branch                # listar ramas
+git checkout nombreRama   # cambiar de rama
+git merge otraRama        # unir cambios de otra rama a la actual
+git branch -d nombreRama  # borrar rama local
+git push --set-upstream origin nombreRama   # subir nueva rama al remoto
+
+# -------------------------------
+# Flujo básico para unir ramas
+# -------------------------------
+# 1. Estar en la rama a la que quieres unir (ej. master)
+git checkout master
+# 2. Unir cambios de otra rama (ej. rama1)
+git merge rama1
+# 3. Subir cambios
+git push
+
+aceptar pr
+Repo original  <-fork->  Tu fork  <-clone->  Local repo -> Push a tu fork -> PR
